@@ -32,10 +32,16 @@ const deleteItems = (e) => {
     }
 }
 const filterItems = (e) => {
+    //taking user input and converting it to lowercase
     let input = e.target.value.toLowerCase()
+    //accessing all items from itemlist node
     let items = itemList.getElementsByTagName('li')
+    //converting into array and looping through it
     Array.from(items).forEach(function(item){  
+        console.log(item.firstChild)
+        //converting the item into lowercase
         itemName = item.firstChild.textContent.toLowerCase()
+        //checking if input matches the item
         if(itemName.indexOf(input) != -1){
             item.style.display = 'block'
         }
