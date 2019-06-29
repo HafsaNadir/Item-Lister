@@ -34,8 +34,17 @@ const deleteItems = (e) => {
 const filterItems = (e) => {
     let input = e.target.value.toLowerCase()
     let items = itemList.getElementsByTagName('li')
-    console.log(items)
-
+    Array.from(items).forEach(function(item){  
+        itemName = item.firstChild.textContent.toLowerCase()
+        if(itemName.indexOf(input) != -1){
+            item.style.display = 'block'
+        }
+        else
+        {
+            item.style.display = 'none'
+        }
+    }
+    )
 } 
 
 form.addEventListener('submit', addItems)
