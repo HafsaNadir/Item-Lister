@@ -1,7 +1,8 @@
 let form = document.getElementById('addForm')
 let itemList = document.getElementById('items')
+let filter = document.getElementById('filter')
 
-const addItem = (e) => {
+const addItems = (e) => {
     e.preventDefault()
     
     //getting input value
@@ -22,13 +23,21 @@ const addItem = (e) => {
     itemList.appendChild(li)
 }
 
-const deleteItem = (e) => {
+const deleteItems = (e) => {
     if(e.target.classList.contains('delete'))
     {
         li = e.target.parentElement
+        //removing li node i.e. item
         itemList.removeChild(li)
     }
 }
+const filterItems = (e) => {
+    let input = e.target.value.toLowerCase()
+    let items = itemList.getElementsByTagName('li')
+    console.log(items)
 
-form.addEventListener('submit', addItem)
-itemList.addEventListener('click' , deleteItem)
+} 
+
+form.addEventListener('submit', addItems)
+itemList.addEventListener('click' , deleteItems)
+filter.addEventListener('keyup', filterItems)
