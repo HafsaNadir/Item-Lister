@@ -22,4 +22,13 @@ const addItem = (e) => {
     itemList.appendChild(li)
 }
 
+const deleteItem = (e) => {
+    if(e.target.classList.contains('delete'))
+    {
+        li = e.target.parentElement
+        itemList.removeChild(li)
+    }
+}
+
 form.addEventListener('submit', addItem)
+itemList.addEventListener('click' , deleteItem)
